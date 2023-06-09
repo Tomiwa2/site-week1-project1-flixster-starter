@@ -32,11 +32,21 @@ color: white;
 }
 
 #load-more{
-    display: flex;
+    
     color: white;
     background-color: black;
-    
+    text-align: center; 
 
 
 }
+
+.movie-container{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+align-content: center;
+}
+
+
 
