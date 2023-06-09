@@ -1,1 +1,42 @@
+*{
+    background-color: black;
+    color: white;
+}
+
+#flix{
+    text-align: center;
+color: white;
+
+}
+
+#now{
+    display: flex;
+color: white;
+ 
+}
+#search-form {
+    text-align: center; 
+    
+   }
+
+#search-button {
+    color: black;
+    background-color: white;
+
+}
+
+#search-input {
+    color: black;
+    background-color: white;
+
+}
+
+#load-more{
+    display: flex;
+    color: white;
+    background-color: black;
+    
+
+
+}
 
