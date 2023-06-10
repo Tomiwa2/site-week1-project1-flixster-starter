@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 🍿 Flixster</title>
-    <link rel="stylesheet" type = "text/css" href="style.css">
-    
-</head>
-<body>
-    
-    <h1 id = "flix">🍿 Flixster</h1>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <form id = "search-form">
-        <section id="movie-contaniner">  
-        </section>
-    <div> 
-    <label for = 'search'></label>
-    <input type="text" id= "search-input" name = 'search' placeholder="Enter a search term" required/>
+</head>
+
+<body>
+
+    <h1 id="flix">🍿 Flixster</h1>
     
-    <button type = "submit" id = "search-button">Search </button> 
-    </div>
+    <form id="search-form">
+       
+            <div>
+            <label for='search'></label>
+        </div>
+            <input type="text" id="search-input" name='search' placeholder="Search a movie!" required />
+
+            <button type="submit" id="search-button">Search </button>
+            <button type=" submit" id ="clear-button">Clear Search</button>
     </form>
 
-<h2 id = "now"> Now Playing </h2>
-  <!-- <section class="movie">
-   <img src="images/spiderman.jpg " height="300px">
-    <div class="average">
-        <span class="star">⭐️</span>
-        <span class="rating" color = "white">5.6</span>
+
+    <h2 id="now"> Now Playing </h2>
+    <section id = "movie-container"></section>
+
+    <div id="load-more-area">
+    <button type = "button" id="load-more"> Load more movies</button>
     </div>
-    <div class="name" background-color ="white">Spiderman</div>
-</section> -->
-    
-    <button id ="load-more"> Load more movies</button>
-
-     
-    <script  src="script.js"></script>
-    
 </body>
+<script src="script.js"></script>
 </html>
-
-

@@ -24,20 +24,28 @@ color: white;
     background-color: white;
 
 }
+#clear-button {
+    color: black;
+    background-color: white;
 
+}
 #search-input {
     color: black;
     background-color: white;
 
 }
-
 #load-more{
+
+    padding: 10px; 
+    font-size: 15px;
     
-    color: white;
-    background-color: black;
-    text-align: center; 
 
+}
 
+#load-more-area{
+    display: flex;
+    justify-content: center;
+    
 }
 
 .movie-container{
@@ -46,7 +54,22 @@ flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-around;
 align-content: center;
+margin: 20px;
+padding: 30px;
+text-align: center;
 }
 
+.movie{
+width: 300px;
+padding: 35px;
 
+}
 
+.movie:hover{
+    transform: scale(1.12);    
+}
+.name{
+
+font-size: 20px;  
+font-weight: bold;
+}

@@ -1,11 +1,12 @@
 const apiKey = "0691c6593217008dabe52607e2449d01"
 
-let movieContainer = document.createElement('div');
+let movieContainer = document.getElementById('movie-container');
 movieContainer.classList.add("movie-container");
-let searchForm= document.getElementById('search-form')
+let searchForm= document.getElementById('search-form');
+let searchButton = document.getElementById('search-button')
+let clearButton = document.getElementById('clear-button')
 let searchInput = document.getElementById('search-input')
 let loadMore = document.getElementById("load-more")
-document.body.appendChild(movieContainer);
  
 fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=0691c6593217008dabe52607e2449d01")
     .then(res => res.json())
@@ -37,6 +38,7 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&includ
         let image = document.createElement('img');
         console.log(movieObject)
         image.src = "https://image.tmdb.org/t/p/w342/"+movieObject.poster_path;
+        image.setAttribute("alt","This is the poster image for " + movieObject.original_title);
         // document.body.insertBefore(image, averageContainer);
         //create name section
         let name = document.createElement('div');
@@ -45,7 +47,7 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&includ
         // document.body.insertBefore(name, averageContainer.nextSibling);
         //create movie section
         let movie = document.createElement('section');
-        name.classList.add('movie');
+        movie.classList.add('movie');
         movie.appendChild(image);
         movie.appendChild(averageContainer);
         movie.appendChild(name);
@@ -55,7 +57,7 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&includ
     }
 
     
-    searchForm.addEventListener("submit", (e) => {
+    searchButton.addEventListener("click", (e) => {
         e.preventDefault();
         let searchValue = searchInput.value 
         // console.log("search value", searchValue)
@@ -69,29 +71,40 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&includ
         })
     })
     })
-     
-    let pageNum = 2
-    let result = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}` + "&page=" 
-    console.log(result+pageNum)
-    // console.log(loadMore);
 
-    loadMore.addEventListener("click", () => {
-    
+    clearButton.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //let searchValue = searchInput.value 
         // console.log("search value", searchValue)
-        // console.log(result+pageNum)
-        fetch(result+pageNum)
+        movieContainer.innerHTML = ''
+        fetch("https://api.themoviedb.org/3/movie/now_playing?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=0691c6593217008dabe52607e2449d01")
     .then(res => res.json())
     .then(data => {
         data.results.forEach((movie) => {
            generateCards(movie)
             // console.log(data)
-            // pageNum++;
         })
     })
-    pageNum++;
-    console.log(pageNum);
+    })
+     
+    let pageNum = 2
+    let result = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}` + "&page=" 
+    
+
+    loadMore.addEventListener("click", () => {
+    
+        fetch(result+pageNum)
+    .then(res => res.json())
+    .then(data => {
+        data.results.forEach((movie) => {
+           generateCards(movie)
+            
+        })
+    })
+
 
 })
+pageNum++;
     
      
 
